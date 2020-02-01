@@ -30,6 +30,7 @@ public class SequenceMinigame : BaseMinigame {
     }
 
     private void GoToNextAction () {
+        currentPlayer.currentActionMap.actionTriggered -= ActionTriggeredHandler;
         currentAction = actions[currentIndex];
         currentPlayer.currentActionMap.actionTriggered += ActionTriggeredHandler;
     }
@@ -37,7 +38,9 @@ public class SequenceMinigame : BaseMinigame {
     private void ActionTriggeredHandler ( InputAction.CallbackContext obj ) {
         if ( obj.action == currentAction )
             GoToNextAction();
-        else
+        else {
             ResetMinigame();
+            currentPlayer.currentActionMap.actionTriggered -= ActionTriggeredHandler;
+        }
     }
 }

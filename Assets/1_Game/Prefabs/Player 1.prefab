@@ -370,9 +370,9 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8bd864ed-97ce-4b8c-b203-1b9576cdb79f
     m_ActionName: Sequence Minigame/Right Trigger[/DualShock4GamepadHID/rightTrigger,/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1276597757
@@ -412,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 1226403e0ee381746acdd795dbbad9e5, type: 3}
       propertyPath: m_Name
       value: Hat_Hip-Hop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 1226403e0ee381746acdd795dbbad9e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1226403e0ee381746acdd795dbbad9e5, type: 3}
       propertyPath: m_LocalPosition.x

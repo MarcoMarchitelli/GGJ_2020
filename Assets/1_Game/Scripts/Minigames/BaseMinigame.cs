@@ -10,6 +10,7 @@ public abstract class BaseMinigame : MonoBehaviour {
     public UnityEvent OnMinigameReset;
 
     [HideInInspector] public bool completed;
+    private bool inMinigame;
 
     protected List<PlayerInput> playersInRange = new List<PlayerInput>();
     protected PlayerInput currentPlayer;
@@ -38,27 +39,32 @@ public abstract class BaseMinigame : MonoBehaviour {
     //see if fail/win => exit minigame
     //if win set completed
     protected void Complete () {
+        Debug.Log( name + " minigame completed." );
+        inMinigame = false;
         CustomComplete();
         currentPlayer.SwitchCurrentActionMap( "Gameplay" );
         completed = true;
-        print( name + " minigame completed." );
         OnMinigameComplete.Invoke();
     }
 
     protected void ResetMinigame () {
+        Debug.Log( name + " minigame reset." );
+        inMinigame = false;
         CustomReset();
         currentPlayer.SwitchCurrentActionMap( "Gameplay" );
-        print( name + " minigame reset." );
         OnMinigameReset.Invoke();
     }
 
     public void StartMinigame () {
+        Debug.Log( name + " minigame started." );
+        inMinigame = true;
         CustomStart();
-        print( name + " minigame started." );
         OnMinigameStart.Invoke();
     }
 
     public void StartMinigameButtonHandler ( PlayerInput playerInput ) {
+        if ( inMinigame )
+            return;
         if ( playersInRange.Contains( playerInput ) ) {
             currentPlayer = playerInput;
             StartMinigame();

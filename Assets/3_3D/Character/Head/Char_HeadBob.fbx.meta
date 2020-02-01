@@ -3,7 +3,12 @@ guid: aac607cf8d22a5444bec0074229c6871
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CharacterBob
+    second: {fileID: 2100000, guid: fad2ba037fcefe44e90a129d95cdadf9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

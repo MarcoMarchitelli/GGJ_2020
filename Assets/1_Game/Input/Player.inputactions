@@ -19,7 +19,7 @@
                     "id": "f59dc341-10d1-4e43-b269-0e34818dd76e",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Tap"
                 },
                 {
                     "name": "Pause",
