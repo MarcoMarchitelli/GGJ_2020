@@ -1,13 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Team : MonoBehaviour {
-    [Header("References")]
-    public Transform player1Pos;
-    public Transform player2Pos;
+    [Header("Parameters")]
     public Color color;
 
+    [Header("Player References")]
+    public Transform player1Pos;
+    public Transform player2Pos;
+
+    [Header("Car References")]
+    public Transform carPath;
+    public Transform carWaitPos;
+    public CarEntity carPrefab;
+
     [HideInInspector] public List<PlayerEntity> playerEntities = new List<PlayerEntity>();
+    private int score;
 
     public void AddPlayer ( PlayerEntity playerEntity ) {
         if ( !playerEntities.Contains( playerEntity ) ) {
@@ -22,6 +31,7 @@ public class Team : MonoBehaviour {
                 break;
             }
 
+            playerEntity.team = this;
             playerEntity.GetComponentInChildren<MeshRenderer>().material.color = color;
         }
     }
@@ -31,5 +41,10 @@ public class Team : MonoBehaviour {
             playerEntities.Remove( playerEntity );
             Destroy( playerEntity.gameObject );
         }
+    }
+
+    public void OnCarRepair ( Team team ) {
+        if ( team == this )
+            score++;
     }
 }

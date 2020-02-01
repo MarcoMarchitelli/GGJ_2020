@@ -8,6 +8,7 @@ public abstract class BaseMinigame : MonoBehaviour {
     [HideInInspector] public bool completed;
 
     protected List<PlayerEntity> playersInRange;
+    protected PlayerEntity currentPlayer;
 
     //detect player entrance (more than one)
     private void OnTriggerEnter ( Collider other ) {
@@ -30,12 +31,28 @@ public abstract class BaseMinigame : MonoBehaviour {
 
     //see if fail/win => exit minigame
     //if win set completed
-    private void Complete () {
+    protected void Complete () {
         CustomComplete();
         completed = true;
     }
 
+    protected void ResetMinigame () {
+        CustomReset();
+    }
+
+    public void StartMinigame () {
+        CustomStart();
+    }
+
     protected virtual void CustomComplete () {
+
+    }
+
+    protected virtual void CustomReset () {
+
+    }
+
+    protected virtual void CustomStart () {
 
     }
 }

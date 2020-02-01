@@ -4,5 +4,5 @@ using UnityEngine;
 using Deirin.EB;
 
 public class PlayerEntity : BaseEntity {
-
+    public Team team;
 }
