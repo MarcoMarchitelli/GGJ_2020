@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using Deirin.EB;
+using UnityEngine.InputSystem;
 
 public class PlayerRigidBodyBehaviour : BaseBehaviour {
-    [Header("Data")]
-    public Vector3Variable moveInput;
-
     [Header("References")]
     public Rigidbody rb;
 
@@ -18,6 +16,7 @@ public class PlayerRigidBodyBehaviour : BaseBehaviour {
     public UnityEvent OnMove;
     public UnityEvent OnStop;
 
+    private Vector3 inputVector;
     private Vector3 velocity;
     private Vector3 localDir;
     private float magnitude;
@@ -35,11 +34,15 @@ public class PlayerRigidBodyBehaviour : BaseBehaviour {
     }
     #endregion
 
+    public void SetInputVector ( Vector3 inputVector ) {
+        this.inputVector = inputVector;
+    }
+
     #region Privates
     private void Move () {
         CheckMovementStatus();
 
-        velocity = moveInput.Value * acceleration * Time.fixedDeltaTime;
+        velocity = inputVector * acceleration * Time.fixedDeltaTime;
         magnitude = velocity.sqrMagnitude;
         magnitude = Mathf.Clamp( magnitude, 0, maxSpeed * maxSpeed );
         velocity = velocity.normalized * magnitude;
@@ -47,11 +50,11 @@ public class PlayerRigidBodyBehaviour : BaseBehaviour {
     }
 
     private void CheckMovementStatus () {
-        if ( moving && moveInput.Value == Vector3.zero ) {
+        if ( moving && inputVector == Vector3.zero ) {
             moving = false;
             OnStop.Invoke();
         }
-        else if ( !moving && moveInput.Value != Vector3.zero ) {
+        else if ( !moving && inputVector != Vector3.zero ) {
             moving = true;
             OnMove.Invoke();
         }
@@ -62,8 +65,8 @@ public class PlayerRigidBodyBehaviour : BaseBehaviour {
 
         transform.localRotation = Quaternion.identity;
 
-        if ( moveInput.Value != Vector3.zero )
-            localDir = transform.InverseTransformDirection( moveInput.Value );
+        if ( inputVector != Vector3.zero )
+            localDir = transform.InverseTransformDirection( inputVector );
 
         targetRotation = Quaternion.LookRotation( localDir, transform.up );
 
@@ -71,6 +74,6 @@ public class PlayerRigidBodyBehaviour : BaseBehaviour {
                                                     targetRotation,
                                                     1 - Mathf.Exp( -turnSpeed * Time.deltaTime )
                                                     );
-    } 
+    }
     #endregion
 }
