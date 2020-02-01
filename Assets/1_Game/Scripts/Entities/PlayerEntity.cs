@@ -5,5 +5,8 @@ using Deirin.EB;
 using UnityEngine.InputSystem;
 
 public class PlayerEntity : BaseEntity {
+    [Header("References")]
     public Team team;
+    public Transform graphics;
+    public PlayerInput playerInput;
 }

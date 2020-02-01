@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8321684559750604085
 Transform:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 1276597754}
   - component: {fileID: 1276597757}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setupOnAwake: 0
   team: {fileID: 0}
+  graphics: {fileID: 8321684558524684583}
 --- !u!114 &8321684560292489500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,9 +371,24 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8bd864ed-97ce-4b8c-b203-1b9576cdb79f
     m_ActionName: Sequence Minigame/Right Trigger[/DualShock4GamepadHID/rightTrigger,/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 37648399647ac3540bf28c2cd99ccba1, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5fbd59b7-c053-443d-bed0-7c8ed4ead035
+    m_ActionName: Ready/StartGame[/DualShock4GamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: 654013f6-661e-4f62-9019-b5f6945a7696
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1276597757
@@ -415,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 1226403e0ee381746acdd795dbbad9e5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1226403e0ee381746acdd795dbbad9e5, type: 3}
       propertyPath: m_LocalPosition.x

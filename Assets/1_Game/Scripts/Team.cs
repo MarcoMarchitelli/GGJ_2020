@@ -16,7 +16,7 @@ public class Team : MonoBehaviour {
     public CarEntity carPrefab;
 
     [Header("Char Graphics")]
-    public GameObject bob;
+    public GameObject[] meshes;
 
     [HideInInspector] public List<PlayerEntity> playerEntities = new List<PlayerEntity>();
     private int score;
@@ -24,17 +24,21 @@ public class Team : MonoBehaviour {
     public void AddPlayer ( PlayerEntity playerEntity ) {
         if ( !playerEntities.Contains( playerEntity ) ) {
             playerEntities.Add( playerEntity );
+            //GameObject mesh = null;
 
             switch ( playerEntities.Count ) {
                 case 1:
                 playerEntity.transform.position = player1Pos.position;
+                //mesh = meshes[0];
                 break;
                 case 2:
                 playerEntity.transform.position = player2Pos.position;
+                //mesh = meshes[1];
                 break;
             }
 
             playerEntity.team = this;
+            //GameObject instMesh = Instantiate( mesh, playerEntity.graphics );
 
             if ( setupPlayerOnJoin )
                 playerEntity.Setup();
@@ -51,5 +55,12 @@ public class Team : MonoBehaviour {
     public void OnCarRepair ( Team team ) {
         if ( team == this )
             score++;
+    }
+
+    public void SetupPlayers () {
+        foreach ( var item in playerEntities ) {
+            item.Setup();
+            item.playerInput.SwitchCurrentActionMap( "Gameplay" );
+        }
     }
 }

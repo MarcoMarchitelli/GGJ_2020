@@ -10,6 +10,9 @@ public class TeamManager : MonoBehaviour {
     [Header("Events")]
     public UnityEvent OnCanPlay;
     public UnityEvent OnCannotPlay;
+    public UnityEvent OnGameStart;
+
+    private bool canPlay;
 
     public void HandlePlayerJoining ( PlayerInput playerInput ) {
         switch ( playerInput.playerIndex ) {
@@ -39,16 +42,33 @@ public class TeamManager : MonoBehaviour {
         CheckGameStartConditions();
     }
 
+    public void HandleStartGameButtonClick () {
+        if ( canPlay )
+            StartGame();
+    }
+
     private void CheckGameStartConditions () {
         int teamAPlayers = teamA.playerEntities.Count;
         int teambPlayers = teamB.playerEntities.Count;
         if ( teamAPlayers != 0 && teambPlayers != 0 && teamAPlayers == teambPlayers ) {
             //can play
+            canPlay = true;
             OnCanPlay.Invoke();
         }
         else {
             //cannot play
+            canPlay = false;
             OnCannotPlay.Invoke();
+        }
+    }
+
+    private void StartGame () {
+        OnGameStart.Invoke();
+        for ( int i = 0; i < teamA.playerEntities.Count; i++ ) {
+            teamA.playerEntities[i].Setup();
+        }
+        for ( int i = 0; i < teamB.playerEntities.Count; i++ ) {
+            teamB.playerEntities[i].Setup();
         }
     }
 }
