@@ -4,6 +4,7 @@ using DG.Tweening;
 
 public class Team : MonoBehaviour {
     [Header("Parameters")]
+    public bool setupPlayerOnJoin = false;
     public Color color;
 
     [Header("Player References")]
@@ -33,6 +34,9 @@ public class Team : MonoBehaviour {
 
             playerEntity.team = this;
             playerEntity.GetComponentInChildren<MeshRenderer>().material.color = color;
+
+            if ( setupPlayerOnJoin )
+                playerEntity.Setup();
         }
     }
 

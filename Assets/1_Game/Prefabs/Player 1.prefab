@@ -186,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 8321684560292489503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 8321684558524684583}
   - {fileID: 8562406817308566093}
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setupOnAwake: 0
+  team: {fileID: 0}
 --- !u!114 &8321684560292489500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +309,18 @@ MonoBehaviour:
     m_ActionId: 21e8566f-98cb-4ad7-8dd1-4a46eee5f490
     m_ActionName: Gameplay/Move
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8786c5af73f77d047a53d8ad22e99c4b, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1276597754}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f59dc341-10d1-4e43-b269-0e34818dd76e
     m_ActionName: Gameplay/Action
   - m_PersistentCalls:
@@ -326,6 +338,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 223ed594-36ea-44c2-a92f-bbc75ac7383f
     m_ActionName: Gameplay/Pause[/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5fff2e89-9d21-4bc7-b56c-7884d7ddb991
+    m_ActionName: Sequence Minigame/Button South[/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f0e93ee2-c9f5-4786-a1c7-1800a812fcb5
+    m_ActionName: Sequence Minigame/Button East[/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e81ba38-98aa-47d6-ba5b-87a8af321f0a
+    m_ActionName: Sequence Minigame/Button West[/DualShock4GamepadHID/buttonWest,/DualShock4GamepadHID/buttonWest,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 62026bf9-ba78-4822-b39b-6510b0cb4ff1
+    m_ActionName: Sequence Minigame/Button North[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID/buttonNorth,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 545978bc-ec82-4a01-8729-c2a45fe67c22
+    m_ActionName: Sequence Minigame/Left Shoulder[/DualShock4GamepadHID/leftShoulder,/DualShock4GamepadHID/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 766a68cf-df6d-4c66-bf51-0e0fc8b33d79
+    m_ActionName: Sequence Minigame/Right Shoulder[/DualShock4GamepadHID/rightShoulder,/DualShock4GamepadHID/rightShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0d6b8dd9-8986-45cf-838b-d008f04f5369
+    m_ActionName: Sequence Minigame/Left Trigger[/DualShock4GamepadHID/leftTrigger,/DualShock4GamepadHID/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8bd864ed-97ce-4b8c-b203-1b9576cdb79f
+    m_ActionName: Sequence Minigame/Right Trigger[/DualShock4GamepadHID/rightTrigger,/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
