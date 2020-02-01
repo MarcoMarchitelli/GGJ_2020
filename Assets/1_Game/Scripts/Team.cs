@@ -5,7 +5,6 @@ using DG.Tweening;
 public class Team : MonoBehaviour {
     [Header("Parameters")]
     public bool setupPlayerOnJoin = false;
-    public Color color;
 
     [Header("Player References")]
     public Transform player1Pos;
@@ -15,6 +14,9 @@ public class Team : MonoBehaviour {
     public Transform carPath;
     public Transform carWaitPos;
     public CarEntity carPrefab;
+
+    [Header("Char Graphics")]
+    public GameObject bob;
 
     [HideInInspector] public List<PlayerEntity> playerEntities = new List<PlayerEntity>();
     private int score;
@@ -33,7 +35,6 @@ public class Team : MonoBehaviour {
             }
 
             playerEntity.team = this;
-            playerEntity.GetComponentInChildren<MeshRenderer>().material.color = color;
 
             if ( setupPlayerOnJoin )
                 playerEntity.Setup();

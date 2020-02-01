@@ -47,7 +47,7 @@ public abstract class BaseMinigame : MonoBehaviour {
         OnMinigameComplete.Invoke();
     }
 
-    protected void ResetMinigame () {
+    public void ResetMinigame () {
         Debug.Log( name + " minigame reset." );
         inMinigame = false;
         CustomReset();
