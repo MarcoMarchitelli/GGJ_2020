@@ -6,6 +6,7 @@
     public abstract class BaseTweener : MonoBehaviour {
         [Header("Tweener Params")]
         public bool ignoresContainer;
+        public bool unscaledTime = false;
         [Min(0)] public float duration;
         public Ease ease;
         [Min(-1)] public int loops;

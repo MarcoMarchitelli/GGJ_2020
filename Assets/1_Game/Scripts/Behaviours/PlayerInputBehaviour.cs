@@ -9,10 +9,20 @@ public class PlayerInputBehaviour : BaseBehaviour {
     [Header("Data")]
     public Vector3Variable moveInput;
 
+    [Header("Events")]
+    public UnityEvent OnPauseClick;
+
     private Vector3 inputVector;
 
     public override void OnUpdate () {
+        ReadPauseInput();
         ReadMovementInput();
+    }
+
+    private void ReadPauseInput () {
+        if ( Input.GetKeyUp( KeyCode.Escape ) ) {
+            OnPauseClick.Invoke();
+        }
     }
 
     private void ReadMovementInput () {
