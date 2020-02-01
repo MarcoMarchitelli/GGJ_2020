@@ -39,8 +39,8 @@ public class SequenceMinigame : BaseMinigame {
         if ( obj.action == currentAction )
             GoToNextAction();
         else {
-            ResetMinigame();
             currentPlayer.currentActionMap.actionTriggered -= ActionTriggeredHandler;
+            ResetMinigame();
         }
     }
 }
