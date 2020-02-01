@@ -129,6 +129,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -166,8 +167,9 @@ GameObject:
   - component: {fileID: 8321684560292489502}
   - component: {fileID: 8321684560292489501}
   - component: {fileID: 8321684560292489500}
-  - component: {fileID: 8321684560292489491}
   - component: {fileID: 8321684560292489490}
+  - component: {fileID: 1276597754}
+  - component: {fileID: 1276597757}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -216,7 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbd2a8edee5aa249b513e7f11b6a074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveInput: {fileID: 11400000, guid: 573ddef80794c69408320ce8c5b11744, type: 2}
   rb: {fileID: 8321684560292489490}
   acceleration: 150
   maxSpeed: 10
@@ -249,20 +250,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8321684560292489491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8321684560292489503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4b30af35e995947a8e9147cd4eb434, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 0}
-  moveInput: {fileID: 11400000, guid: 573ddef80794c69408320ce8c5b11744, type: 2}
 --- !u!54 &8321684560292489490
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -279,6 +266,98 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1276597754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321684560292489503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 74cb0fb8662b56c41a68e87eb466085d,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1276597757}
+        m_MethodName: SetMoveInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 21e8566f-98cb-4ad7-8dd1-4a46eee5f490
+    m_ActionName: Gameplay/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f59dc341-10d1-4e43-b269-0e34818dd76e
+    m_ActionName: Gameplay/Action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 767793bad298410499469e2b7f719649, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 223ed594-36ea-44c2-a92f-bbc75ac7383f
+    m_ActionName: Gameplay/Pause[/DualShock4GamepadHID/start]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Gamepad
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1276597757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321684560292489503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae2e69c141c60b488f63dff9bb8fd42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  OnMoveInputChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8321684560292489500}
+        m_MethodName: SetInputVector
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5324613754031944982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -353,6 +432,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8562406817308566093}
     m_Modifications:
+    - target: {fileID: 8188068043425435896, guid: 9f95b981093d0d649a4d641deb4e7f9f,
+        type: 3}
+      propertyPath: m_Name
+      value: Walk Smoke
+      objectReference: {fileID: 0}
     - target: {fileID: 727554639842984890, guid: 9f95b981093d0d649a4d641deb4e7f9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -407,11 +491,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.124
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188068043425435896, guid: 9f95b981093d0d649a4d641deb4e7f9f,
-        type: 3}
-      propertyPath: m_Name
-      value: Walk Smoke
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f95b981093d0d649a4d641deb4e7f9f, type: 3}

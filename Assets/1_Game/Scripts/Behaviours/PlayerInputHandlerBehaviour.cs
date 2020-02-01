@@ -12,6 +12,11 @@ public class PlayerInputHandlerBehaviour : BaseBehaviour {
 
     private Vector3 inputVector;
 
+    protected override void CustomSetup () {
+        if ( !cameraTransform )
+            cameraTransform = Camera.main.transform;
+    }
+
     public void SetMoveInput ( InputAction.CallbackContext callbackContext ) {
         Vector2 inputVector = callbackContext.ReadValue<Vector2>();
         this.inputVector = new Vector3( inputVector.x, 0, inputVector.y );
