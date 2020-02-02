@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Deirin.EB;
 
-public class CarEntity : BaseEntity {
+public class CarEntity : MonoBehaviour {
     [Header("References")]
     public Team team;
 
