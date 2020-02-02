@@ -2719,7 +2719,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 62.5
+  m_fontSize: 76.95
   m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3192,6 +3192,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5512452861565439787, guid: cccc19ba2ffa0a84f8cbd159460e5f71,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e1474b789a894d41aa412844bdb73f5, type: 2}
+    - target: {fileID: 1308429826415587128, guid: cccc19ba2ffa0a84f8cbd159460e5f71,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bbba9cc4c1a5b048bd5616f63ec98a1, type: 2}
+    - target: {fileID: 1308429826415587128, guid: cccc19ba2ffa0a84f8cbd159460e5f71,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44bec5998871fcf428718a8be5c667a3, type: 2}
+    - target: {fileID: 1308429826415587128, guid: cccc19ba2ffa0a84f8cbd159460e5f71,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e1474b789a894d41aa412844bdb73f5, type: 2}
+    - target: {fileID: 1308429826415587128, guid: cccc19ba2ffa0a84f8cbd159460e5f71,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac4f7a7cd3577c94b908c321d255d231, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cccc19ba2ffa0a84f8cbd159460e5f71, type: 3}
 --- !u!1 &2139563620
