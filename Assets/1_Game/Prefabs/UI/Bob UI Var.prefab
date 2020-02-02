@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8245559620803535084, guid: c774109080e3c924cb94d24dc4d55c51,
         type: 3}
       propertyPath: m_Name
-      value: Player UI
+      value: Bob UI Var
       objectReference: {fileID: 0}
     - target: {fileID: 8245559620803535083, guid: c774109080e3c924cb94d24dc4d55c51,
         type: 3}
@@ -116,6 +116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245559620402991053, guid: c774109080e3c924cb94d24dc4d55c51,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 92
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c774109080e3c924cb94d24dc4d55c51, type: 3}

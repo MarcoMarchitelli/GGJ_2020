@@ -36,6 +36,14 @@
                     "expectedControlType": "Double",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Item",
+                    "type": "Button",
+                    "id": "9159e773-3644-4046-b5fc-c348652ad6ee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -80,6 +88,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Repair",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ef02f80-5e57-4a43-b653-9596a5563693",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

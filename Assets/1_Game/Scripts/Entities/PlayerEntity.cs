@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Deirin.EB;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class PlayerEntity : MonoBehaviour {
     [Header("Data")]
@@ -14,6 +15,7 @@ public class PlayerEntity : MonoBehaviour {
     public PlayerInput playerInput;
     public PlayerInputHandlerBehaviour playerInputHandler;
     public PlayerRigidBodyBehaviour playerRigidBody;
+    public Transform itemHolder;
 
     [Header("Events")]
     public UnityEvent OnStartGameButtonClick;
@@ -26,12 +28,15 @@ public class PlayerEntity : MonoBehaviour {
     Animator animator;
     PlayerUI playerUI;
 
+    public bool hasItem;
+
     public bool canRepair {
         set {
             playerUI.CanRepair( value );
         }
     }
     public System.Action<PlayerEntity> OnRepairButtonDown,OnRepairButtonUp;
+    public System.Action<PlayerEntity> OnItemButtonPress;
 
     public void Setup ( PlayerData data ) {
         this.data = data;
@@ -94,7 +99,7 @@ public class PlayerEntity : MonoBehaviour {
     }
 
     public void OnMove ( InputValue value ) {
-        if ( repairing ) {
+        if ( repairing || stunned ) {
             OnMoveInputVector.Invoke( Vector2.zero );
             return;
         }
@@ -106,7 +111,33 @@ public class PlayerEntity : MonoBehaviour {
     }
 
     public void OnStartMinigame () {
+        if ( stunned )
+            return;
         OnStartMinigameButtonClick.Invoke( playerInput );
     }
+
+    public void OnItem () {
+        if ( stunned )
+            return;
+        OnItemButtonPress?.Invoke( this );
+        if ( item ) {
+            item.Use();
+        }
+    }
     #endregion
+
+    Item item;
+    public void EquipItem ( Item item ) {
+        hasItem = true;
+        this.item = item;
+        item.transform.DOMove( itemHolder.position, .5f ).SetEase( Ease.OutCubic );
+    }
+
+    bool stunned;
+    public void Stun () {
+        animator.SetTrigger( "Stun" );
+        stunned = true;
+        if ( repairing )
+            StopRepair();
+    }
 }
