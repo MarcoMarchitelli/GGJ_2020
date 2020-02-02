@@ -3,17 +3,13 @@ using UnityEngine;
 using DG.Tweening;
 
 public class Team : MonoBehaviour {
-    [Header("Player References")]
-    public Transform player1Pos;
-    public Transform player2Pos;
+    [Header("Player Data")]
+    public PlayerData[] players;
 
     [Header("Car References")]
     public Transform carPath;
     public Transform carWaitPos;
     public CarEntity carPrefab;
-
-    [Header("Char Graphics")]
-    public GameObject[] meshes;
 
     [HideInInspector] public List<PlayerEntity> playerEntities = new List<PlayerEntity>();
     private int score;
@@ -25,17 +21,12 @@ public class Team : MonoBehaviour {
 
             switch ( playerEntities.Count ) {
                 case 1:
-                playerEntity.transform.position = player1Pos.position;
-                //mesh = meshes[0];
+                playerEntity.Setup( players[0] );             
                 break;
                 case 2:
-                playerEntity.transform.position = player2Pos.position;
-                //mesh = meshes[1];
+                playerEntity.Setup( players[1] );
                 break;
             }
-
-            playerEntity.team = this;
-            //GameObject instMesh = Instantiate( mesh, playerEntity.graphics );
         }
     }
 
@@ -56,4 +47,14 @@ public class Team : MonoBehaviour {
             item.playerInput.SwitchCurrentActionMap( "Gameplay" );
         }
     }
+}
+
+[System.Serializable]
+public class PlayerData {
+    public string name;
+    public Animator animator;
+    public Transform spawnPos;
+    public Sprite icon;
+    public Team team;
+    public PlayerUI playerUIPrefab;
 }

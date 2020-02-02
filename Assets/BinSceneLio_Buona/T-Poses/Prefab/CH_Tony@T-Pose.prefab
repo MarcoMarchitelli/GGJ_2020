@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2658102663962589208}
   - component: {fileID: 5361950471551898978}
+  - component: {fileID: 8191639366424241606}
   m_Layer: 0
   m_Name: CH_Tony@T-Pose
   m_TagString: Untagged
@@ -135,7 +136,7 @@ Animator:
   m_GameObject: {fileID: 1348867201751616011}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 590bf6c054b30e945bb1dc2e66fb6885, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06e114773febecd45ad603fff20cab49, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -144,6 +145,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &8191639366424241606
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348867201751616011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1407591234104883026
 GameObject:
   m_ObjectHideFlags: 0

@@ -229,6 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2108947185494587353}
   - component: {fileID: 8344747394799393443}
+  - component: {fileID: 5550232971463239260}
   m_Layer: 0
   m_Name: CH_Bob@T-Pose
   m_TagString: Untagged
@@ -262,7 +263,7 @@ Animator:
   m_GameObject: {fileID: 3107243578227688906}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1245cf1a6dcee4f45a75821add9bf981, type: 3}
-  m_Controller: {fileID: 9100000, guid: f596405234deefe4383f966ef53af1b2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 06e114773febecd45ad603fff20cab49, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -271,6 +272,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &5550232971463239260
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107243578227688906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3215321527264657570
 GameObject:
   m_ObjectHideFlags: 0

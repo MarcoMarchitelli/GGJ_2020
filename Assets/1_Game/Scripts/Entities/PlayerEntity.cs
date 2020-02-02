@@ -6,8 +6,10 @@ using Deirin.EB;
 using UnityEngine.InputSystem;
 
 public class PlayerEntity : MonoBehaviour {
+    [Header("Data")]
+    public PlayerData data;
+
     [Header("References")]
-    public Team team;
     public Transform graphics;
     public PlayerInput playerInput;
     public PlayerInputHandlerBehaviour playerInputHandler;
@@ -18,6 +20,32 @@ public class PlayerEntity : MonoBehaviour {
     public UnityVector2Event OnMoveInputVector;
     public UnityEvent OnPauseButtonClick;
     public UnityPlayerInputEvent OnStartMinigameButtonClick;
+
+    Animator animator;
+    PlayerUI playerUI;
+
+    public void Setup ( PlayerData data ) {
+        this.data = data;
+        transform.position = data.spawnPos.position;
+        animator = Instantiate( data.animator, graphics );
+        playerRigidBody.OnMove.AddListener( HandleMovementStart );
+        playerRigidBody.OnStop.AddListener( HandleMovementStop );
+        playerUI = Instantiate( data.playerUIPrefab );
+        playerUI.Setup( this );
+    }
+
+    private void OnDisable () {
+        playerRigidBody.OnMove.RemoveListener( HandleMovementStart );
+        playerRigidBody.OnStop.RemoveListener( HandleMovementStop );
+    }
+
+    private void HandleMovementStart () {
+        animator.SetTrigger( "Run" );
+    }
+
+    private void HandleMovementStop () {
+        animator.SetTrigger( "Idle" );
+    }
 
     private void Update () {
         print( playerInput.user.id + " " + playerInput.currentActionMap );

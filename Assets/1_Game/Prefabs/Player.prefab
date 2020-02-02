@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8321684559750604085
 Transform:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 8321684560292489503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8321684558524684583}
   - {fileID: 8562406817308566093}
@@ -205,7 +205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d17709983a4ae64987585b95d5681d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: {fileID: 0}
+  data:
+    name: 
+    animator: {fileID: 0}
+    spawnPos: {fileID: 0}
+    icon: {fileID: 0}
+    team: {fileID: 0}
+    playerUIPrefab: {fileID: 0}
   graphics: {fileID: 8321684558524684583}
   playerInput: {fileID: 1276597754}
   playerInputHandler: {fileID: 1276597757}
@@ -489,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 1226403e0ee381746acdd795dbbad9e5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1226403e0ee381746acdd795dbbad9e5, type: 3}
       propertyPath: m_LocalPosition.x

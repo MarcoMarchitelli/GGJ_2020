@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2595166548842485993}
   - component: {fileID: 5371072487405598099}
+  - component: {fileID: 6218552647313476070}
   m_Layer: 0
   m_Name: CH_Jonnhy@T-Pose
   m_TagString: Untagged
@@ -135,7 +136,7 @@ Animator:
   m_GameObject: {fileID: 1322013066131237626}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ae2c85572d6bcee43bdb2604e0f91b6a, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06e114773febecd45ad603fff20cab49, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -144,6 +145,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &6218552647313476070
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322013066131237626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1398469624734914467
 GameObject:
   m_ObjectHideFlags: 0
