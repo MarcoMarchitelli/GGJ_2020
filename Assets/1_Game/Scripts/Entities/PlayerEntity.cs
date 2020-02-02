@@ -129,6 +129,7 @@ public class PlayerEntity : MonoBehaviour {
     Item item;
     public void EquipItem ( Item item ) {
         hasItem = true;
+        item.team = data.team;
         this.item = item;
         item.transform.DOMove( itemHolder.position, .5f ).SetEase( Ease.OutCubic );
     }

@@ -9,6 +9,8 @@ public class Item : MonoBehaviour {
     List<PlayerEntity> playersInRange = new List<PlayerEntity>();
     PlayerEntity currentPlayer;
 
+    public Team team;
+
     private void OnTriggerEnter ( Collider other ) {
         if ( currentPlayer )
             return;
@@ -45,6 +47,7 @@ public class Item : MonoBehaviour {
     }
 
     public void Use () {
+        stunner.team = team;
         stunner.Activate();
     }
 }
