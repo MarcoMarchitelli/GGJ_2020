@@ -64,11 +64,5 @@ public class TeamManager : MonoBehaviour {
 
     private void StartGame () {
         OnGameStart.Invoke();
-        for ( int i = 0; i < teamA.playerEntities.Count; i++ ) {
-            teamA.playerEntities[i].Setup();
-        }
-        for ( int i = 0; i < teamB.playerEntities.Count; i++ ) {
-            teamB.playerEntities[i].Setup();
-        }
     }
 }

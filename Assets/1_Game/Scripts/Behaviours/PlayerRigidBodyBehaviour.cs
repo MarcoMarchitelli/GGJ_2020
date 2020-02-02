@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using Deirin.EB;
 using UnityEngine.InputSystem;
 
-public class PlayerRigidBodyBehaviour : BaseBehaviour {
+public class PlayerRigidBodyBehaviour : MonoBehaviour {
     [Header("References")]
     public Rigidbody rb;
 
@@ -25,11 +25,11 @@ public class PlayerRigidBodyBehaviour : BaseBehaviour {
     private bool moving;
 
     #region Overrides
-    public override void OnUpdate () {
+    public void Update () {
         Turn();
     }
 
-    public override void OnLateUpdate () {
+    public void LateUpdate () {
         Move();
     }
     #endregion

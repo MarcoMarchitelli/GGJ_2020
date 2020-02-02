@@ -3,9 +3,6 @@ using UnityEngine;
 using DG.Tweening;
 
 public class Team : MonoBehaviour {
-    [Header("Parameters")]
-    public bool setupPlayerOnJoin = false;
-
     [Header("Player References")]
     public Transform player1Pos;
     public Transform player2Pos;
@@ -39,9 +36,6 @@ public class Team : MonoBehaviour {
 
             playerEntity.team = this;
             //GameObject instMesh = Instantiate( mesh, playerEntity.graphics );
-
-            if ( setupPlayerOnJoin )
-                playerEntity.Setup();
         }
     }
 
@@ -59,7 +53,6 @@ public class Team : MonoBehaviour {
 
     public void SetupPlayers () {
         foreach ( var item in playerEntities ) {
-            item.Setup();
             item.playerInput.SwitchCurrentActionMap( "Gameplay" );
         }
     }
