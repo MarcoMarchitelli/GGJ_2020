@@ -78,7 +78,7 @@ public class Repairable : MonoBehaviour {
         currentPlayer.StopRepair();
     }
 
-    public void StartMinigame (PlayerEntity p) {
+    public void StartMinigame ( PlayerEntity p ) {
         Debug.Log( name + " started." );
         repairing = true;
         completed = false;
@@ -91,6 +91,7 @@ public class Repairable : MonoBehaviour {
     private void Update () {
         if ( counting ) {
             timer += Time.deltaTime;
+            currentPlayer.UpdateRepairPercent( Mathf.Clamp01( timer / repairTime ) );
             if ( timer >= repairTime )
                 Complete( currentPlayer );
         }

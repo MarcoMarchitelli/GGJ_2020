@@ -7,8 +7,10 @@ public class PlayerUI : MonoBehaviour {
     public Image image;
     public TextMeshProUGUI nameText;
     public GameObject repairCommand;
+    public GameObject repairProgress;
+    public Image fillImage;
 
-    PlayerEntity player;
+    private PlayerEntity player;
 
     public void Setup ( PlayerEntity player ) {
         this.player = player;
@@ -19,9 +21,16 @@ public class PlayerUI : MonoBehaviour {
     public void CanRepair ( bool value ) {
         repairCommand.SetActive( value );
         nameText.gameObject.SetActive( !value );
+        repairProgress.SetActive( false );
     }
 
-    public void Repairing () {
+    public void StartRepair ( bool value ) {
+        repairProgress.SetActive( value );
+        nameText.gameObject.SetActive( !value );
+        repairCommand.SetActive( false );
+    }
 
+    public void Repairing ( float percent ) {
+        fillImage.fillAmount = percent;
     }
 }

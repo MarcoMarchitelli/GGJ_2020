@@ -69,12 +69,18 @@ public class PlayerEntity : MonoBehaviour {
     public void StartRepair () {
         onRepairStart.Invoke();
         animator.SetTrigger( "RepairStart" );
+        playerUI.StartRepair( true );
         repairing = true;
+    }
+
+    public void UpdateRepairPercent ( float percent ) {
+        playerUI.Repairing( percent );
     }
 
     public void StopRepair () {
         onRepairEnd.Invoke();
         animator.SetTrigger( "RepairEnd" );
+        playerUI.StartRepair( false );
         repairing = false;
     }
 
