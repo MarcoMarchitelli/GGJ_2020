@@ -32,6 +32,7 @@ public class SequenceMinigame : BaseMinigame {
     private void GoToNextAction () {
         currentPlayer.currentActionMap.actionTriggered -= ActionTriggeredHandler;
         currentAction = actions[currentIndex];
+        print( "premi " +  currentAction.bindings );
         currentPlayer.currentActionMap.actionTriggered += ActionTriggeredHandler;
     }
 

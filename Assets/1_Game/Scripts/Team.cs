@@ -3,10 +3,16 @@ using UnityEngine;
 using DG.Tweening;
 
 public class Team : MonoBehaviour {
+    public class PlayerData {
+        public string name;
+        public Animator animator;
+        public PlayerUI playerUI;
+    }
+
     [Header("Parameters")]
     public bool setupPlayerOnJoin = false;
 
-    [Header("Player References")]
+    [Header("Player Data")]
     public Transform player1Pos;
     public Transform player2Pos;
 
@@ -51,5 +57,9 @@ public class Team : MonoBehaviour {
     public void OnCarRepair ( Team team ) {
         if ( team == this )
             score++;
+    }
+
+    public void StartWave () {
+        
     }
 }
