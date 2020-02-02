@@ -196,7 +196,18 @@ MonoBehaviour:
   pileDistance: 5
   OnLose:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ae3832e156bc15e4cbc5b97113358a8a, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerEntities: []
 --- !u!114 &9154033038062673931
 MonoBehaviour:
@@ -460,7 +471,7 @@ MonoBehaviour:
     animator: {fileID: 275346813232602639, guid: cbb6b467db418a24c89c126bde88595d,
       type: 3}
     spawnPos: {fileID: 9154033036984969777}
-    icon: {fileID: 21300000, guid: f290714f649a7d542869ea5d52f27794, type: 3}
+    icon: {fileID: 21300000, guid: 700d5667e6da95d45ac22037fb8006c2, type: 3}
     team: {fileID: 9154033038261071099}
     playerUIPrefab: {fileID: 6797728511552749462, guid: 7c2f92b2616d0f74bb3a4e87683f2a36,
       type: 3}
@@ -468,7 +479,7 @@ MonoBehaviour:
     animator: {fileID: 5371072487405598099, guid: 7d44a91c1c251b6418868ef40119dd51,
       type: 3}
     spawnPos: {fileID: 9154033037323619100}
-    icon: {fileID: 21300000, guid: 700d5667e6da95d45ac22037fb8006c2, type: 3}
+    icon: {fileID: 21300000, guid: f290714f649a7d542869ea5d52f27794, type: 3}
     team: {fileID: 9154033038261071099}
     playerUIPrefab: {fileID: 6797728511552749462, guid: 2107d6a774fa50e4aaff3a309c072316,
       type: 3}
@@ -485,7 +496,18 @@ MonoBehaviour:
   pileDistance: 5
   OnLose:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a48c9d64fc8aa414ab7e4ce44f7b9e62, type: 2}
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerEntities: []
 --- !u!114 &9154033038261071101
 MonoBehaviour:
