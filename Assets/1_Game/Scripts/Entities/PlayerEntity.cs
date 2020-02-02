@@ -26,7 +26,11 @@ public class PlayerEntity : MonoBehaviour {
     Animator animator;
     PlayerUI playerUI;
 
-    public bool canRepair;
+    public bool canRepair {
+        set {
+            playerUI.CanRepair( value );
+        }
+    }
     public System.Action<PlayerEntity> OnRepairButtonDown,OnRepairButtonUp;
 
     public void Setup ( PlayerData data ) {
@@ -56,11 +60,9 @@ public class PlayerEntity : MonoBehaviour {
         float val = value.Get<float>();
         if ( val == 1 ) {
             OnRepairButtonDown?.Invoke( this );
-
         }
         else {
             OnRepairButtonUp?.Invoke( this );
-
         }
     }
     private bool repairing;

@@ -3299,23 +3299,6 @@ PrefabInstance:
       propertyPath: carPos2
       value: 
       objectReference: {fileID: 961755213}
-    - target: {fileID: 9154033038062673929, guid: d2d3dcddce6b15649afeeeb1ff36699d,
-        type: 3}
-      propertyPath: players.Array.data[1].playerUIPrefab
-      value: 
-      objectReference: {fileID: 8245559620803535080, guid: 17af9873c6d6eba419cf72e2b114aba6,
-        type: 3}
-    - target: {fileID: 9154033038062673929, guid: d2d3dcddce6b15649afeeeb1ff36699d,
-        type: 3}
-      propertyPath: players.Array.data[1].name
-      value: Tony
-      objectReference: {fileID: 0}
-    - target: {fileID: 9154033038062673929, guid: d2d3dcddce6b15649afeeeb1ff36699d,
-        type: 3}
-      propertyPath: players.Array.data[0].playerUIPrefab
-      value: 
-      objectReference: {fileID: 8245559620803535080, guid: 9321d887f1ff0484c87b4277448be902,
-        type: 3}
     - target: {fileID: 9154033038261071099, guid: d2d3dcddce6b15649afeeeb1ff36699d,
         type: 3}
       propertyPath: carWaitPos
@@ -3341,22 +3324,5 @@ PrefabInstance:
       propertyPath: carPos2
       value: 
       objectReference: {fileID: 464631575}
-    - target: {fileID: 9154033038261071099, guid: d2d3dcddce6b15649afeeeb1ff36699d,
-        type: 3}
-      propertyPath: players.Array.data[0].playerUIPrefab
-      value: 
-      objectReference: {fileID: 8245559620803535080, guid: 34291d9ea0e3bb641b8765d997e557dd,
-        type: 3}
-    - target: {fileID: 9154033038261071099, guid: d2d3dcddce6b15649afeeeb1ff36699d,
-        type: 3}
-      propertyPath: players.Array.data[1].playerUIPrefab
-      value: 
-      objectReference: {fileID: 8245559620803535080, guid: 9134e0b3e30117b479b58d610c64bf92,
-        type: 3}
-    - target: {fileID: 9154033038261071099, guid: d2d3dcddce6b15649afeeeb1ff36699d,
-        type: 3}
-      propertyPath: players.Array.data[0].name
-      value: Fred
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d3dcddce6b15649afeeeb1ff36699d, type: 3}

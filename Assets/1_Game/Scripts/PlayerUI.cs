@@ -6,6 +6,7 @@ public class PlayerUI : MonoBehaviour {
     [Header("References")]
     public Image image;
     public TextMeshProUGUI nameText;
+    public GameObject repairCommand;
 
     PlayerEntity player;
 
@@ -13,5 +14,14 @@ public class PlayerUI : MonoBehaviour {
         this.player = player;
         image.sprite = this.player.data.icon;
         nameText.text = this.player.data.name;
+    }
+
+    public void CanRepair ( bool value ) {
+        repairCommand.SetActive( value );
+        nameText.gameObject.SetActive( !value );
+    }
+
+    public void Repairing () {
+
     }
 }
