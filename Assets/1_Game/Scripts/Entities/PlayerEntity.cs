@@ -20,9 +20,14 @@ public class PlayerEntity : MonoBehaviour {
     public UnityVector2Event OnMoveInputVector;
     public UnityEvent OnPauseButtonClick;
     public UnityPlayerInputEvent OnStartMinigameButtonClick;
+    public UnityEvent onRepairStart;
+    public UnityEvent onRepairEnd;
 
     Animator animator;
     PlayerUI playerUI;
+
+    public bool canRepair;
+    public System.Action<PlayerEntity> OnRepairButtonDown,OnRepairButtonUp;
 
     public void Setup ( PlayerData data ) {
         this.data = data;
@@ -47,6 +52,30 @@ public class PlayerEntity : MonoBehaviour {
         animator.SetTrigger( "Idle" );
     }
 
+    private void OnRepair ( InputValue value ) {
+        float val = value.Get<float>();
+        if ( val == 1 ) {
+            OnRepairButtonDown?.Invoke( this );
+
+        }
+        else {
+            OnRepairButtonUp?.Invoke( this );
+
+        }
+    }
+    private bool repairing;
+    public void StartRepair () {
+        onRepairStart.Invoke();
+        animator.SetTrigger( "RepairStart" );
+        repairing = true;
+    }
+
+    public void StopRepair () {
+        onRepairEnd.Invoke();
+        animator.SetTrigger( "RepairEnd" );
+        repairing = false;
+    }
+
     private void Update () {
         print( playerInput.user.id + " " + playerInput.currentActionMap );
     }
@@ -57,6 +86,10 @@ public class PlayerEntity : MonoBehaviour {
     }
 
     public void OnMove ( InputValue value ) {
+        if ( repairing ) {
+            OnMoveInputVector.Invoke( Vector2.zero );
+            return;
+        }
         OnMoveInputVector.Invoke( value.Get<Vector2>() );
     }
 

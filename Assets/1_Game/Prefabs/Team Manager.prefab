@@ -183,10 +183,20 @@ MonoBehaviour:
     team: {fileID: 9154033038062673929}
     playerUIPrefab: {fileID: 8720784015851348584, guid: fd7a20b993caea944a51dbb7903d72df,
       type: 3}
-  carPath: {fileID: 0}
   carWaitPos: {fileID: 0}
+  carStartPos: {fileID: 0}
+  carEndPos: {fileID: 0}
+  carPos1: {fileID: 0}
+  carPos2: {fileID: 0}
   carPrefab: {fileID: 3960186675362477940, guid: 40e3f128574110848ade8edd6b6934d0,
     type: 3}
+  startInterval: 40
+  endInterval: 10
+  pileLimit: 7
+  pileDistance: 5
+  OnLose:
+    m_PersistentCalls:
+      m_Calls: []
   playerEntities: []
 --- !u!114 &9154033038062673931
 MonoBehaviour:
@@ -206,6 +216,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9154033038062673929}
         m_MethodName: SetupPlayers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9154033038062673929}
+        m_MethodName: StartCarWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -451,10 +472,20 @@ MonoBehaviour:
     team: {fileID: 9154033038261071099}
     playerUIPrefab: {fileID: 4120151824329608125, guid: a72e26f21d3a56c4faf838c0d308fcad,
       type: 3}
-  carPath: {fileID: 0}
   carWaitPos: {fileID: 0}
-  carPrefab: {fileID: 3960186675362477940, guid: 40e3f128574110848ade8edd6b6934d0,
+  carStartPos: {fileID: 0}
+  carEndPos: {fileID: 0}
+  carPos1: {fileID: 0}
+  carPos2: {fileID: 0}
+  carPrefab: {fileID: 3960186675362477940, guid: 9b6915bfd02397d49b04768816d79414,
     type: 3}
+  startInterval: 40
+  endInterval: 10
+  pileLimit: 7
+  pileDistance: 5
+  OnLose:
+    m_PersistentCalls:
+      m_Calls: []
   playerEntities: []
 --- !u!114 &9154033038261071101
 MonoBehaviour:
@@ -474,6 +505,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9154033038261071099}
         m_MethodName: SetupPlayers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9154033038261071099}
+        m_MethodName: StartCarWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -15,6 +15,8 @@ public abstract class BaseMinigame : MonoBehaviour {
     protected List<PlayerInput> playersInRange = new List<PlayerInput>();
     protected PlayerInput currentPlayer;
 
+    public System.Action OnComplete;
+
     //detect player entrance (more than one)
     private void OnTriggerEnter ( Collider other ) {
         PlayerInput p = other.GetComponentInParent<PlayerInput>();
@@ -45,6 +47,7 @@ public abstract class BaseMinigame : MonoBehaviour {
         currentPlayer.SwitchCurrentActionMap( "Gameplay" );
         completed = true;
         OnMinigameComplete.Invoke();
+        OnComplete?.Invoke();
     }
 
     public void ResetMinigame () {
