@@ -3,8 +3,10 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using System;
 
 public class Team : MonoBehaviour {
+    #region Inspector
     [Header("Player Data")]
     public PlayerData[] players;
 
@@ -24,11 +26,19 @@ public class Team : MonoBehaviour {
 
     [Header("Events")]
     public UnityEvent OnLose;
+    #endregion
 
     [HideInInspector] public List<PlayerEntity> playerEntities = new List<PlayerEntity>();
     private float interval;
     private bool started;
+    private Queue<CarEntity> carPile = new Queue<CarEntity>();
+    private CarEntity[] carPileArray;
+    private Vector3 direction;
+    private CarEntity car2;
+    private CarEntity car1;
+    private System.Action OnCar1Repair, OnCar2Repair;
 
+    #region API
     public void AddPlayer ( PlayerEntity playerEntity ) {
         if ( !playerEntities.Contains( playerEntity ) ) {
             playerEntities.Add( playerEntity );
@@ -58,29 +68,45 @@ public class Team : MonoBehaviour {
         }
     }
 
-    private CarEntity repairSpotCar;
-    private Queue<CarEntity> carPile = new Queue<CarEntity>();
-    private Vector3 direction;
     public void StartCarWave () {
         direction = ( carStartPos.position - carEndPos.position ).normalized;
         started = true;
-
-        StartCoroutine( FirstCar() );
-    }
-
-    IEnumerator FirstCar () {
-        repairSpotCar = Instantiate( carPrefab );
-        repairSpotCar.team = this;
-        repairSpotCar.Randomize();
-        repairSpotCar.transform.position = carStartPos.position;
-        GoToRepair( repairSpotCar );
-        CheckPile();
-
-        yield return new WaitForSeconds( interval );
+        interval = startInterval;
 
         StartCoroutine( Wave() );
     }
+    #endregion
 
+    #region Event Handlers
+    private void Car2RepairHanlder () {
+        GoAway( car2 );
+        car2 = null;
+        if ( car1 ) {
+            if ( car1.repaired ) {
+                GoAway( car1 );
+                car1 = null;
+                if ( carPile.Count > 0 ) {
+                    GoToRepair1( carPile.Dequeue() );
+                    UpdatePilePositions();
+                }
+            }
+        }
+
+    }
+
+    private void Car1RepairHandler () {
+        if ( car2 == null ) {
+            GoAway( car1 );
+            car1 = null;
+            if ( carPile.Count > 0 ) {
+                GoToRepair1( carPile.Dequeue() );
+                UpdatePilePositions();
+            }
+        }
+    } 
+    #endregion
+
+    #region Privates
     IEnumerator Wave () {
         //new car
         CarEntity car = Instantiate( carPrefab );
@@ -89,47 +115,60 @@ public class Team : MonoBehaviour {
         carPile.Enqueue( car );
 
         car.transform.position = carStartPos.position;
-        car.transform.DOMove( carWaitPos.position + direction * ( carPile.Count - 1 ) * pileDistance, Vector3.Distance( car.transform.position, carWaitPos.position ) / car.speed );
 
-        CheckPile();
-
-        if ( instaGoToRepair )
-            GoToRepair( carPile.Dequeue() );
+        if ( !car2 ) {
+            GoToRepair2( carPile.Dequeue() );
+            UpdatePilePositions();
+        }
+        else if ( !car1 ) {
+            GoToRepair1( carPile.Dequeue() );
+            UpdatePilePositions();
+        }
+        else {
+            GoToPile( car );
+            CheckPile();
+        }
 
         yield return new WaitForSeconds( interval );
 
         StartCoroutine( Wave() );
     }
 
-    private void GoToRepair ( CarEntity car ) {
+    private void GoToRepair1 ( CarEntity car ) {
         car.OnCarRepair += OnCarRepairHandler;
         car.transform.DOMove( carPos1.position, Vector3.Distance( car.transform.position, carPos1.position ) / car.speed );
-        repairSpotCar = car;
+        car1 = car;
+    }
+
+    private void GoToRepair2 ( CarEntity car ) {
+        car.OnCarRepair += OnCarRepairHandler;
+        car.transform.DOMove( carPos2.position, Vector3.Distance( car.transform.position, carPos2.position ) / car.speed );
+        car2 = car;
     }
 
     private void GoAway ( CarEntity car ) {
         car.OnCarRepair -= OnCarRepairHandler;
-        car.transform.DOMove( carEndPos.position, Vector3.Distance( car.transform.position, carEndPos.position ) / car.speed ).onComplete += () => Destroy( car.gameObject );
-        repairSpotCar = null;
+        car.transform.DOMove(
+                carEndPos.position,
+                Vector3.Distance( car.transform.position, carEndPos.position ) / car.speed
+            ).onComplete += () => Destroy( car.gameObject );
     }
 
-    bool instaGoToRepair;
+    private void GoToPile ( CarEntity car ) {
+        car.transform.DOMove(
+                        carWaitPos.position + direction * ( carPile.Count - 1 ) * pileDistance,
+                        Vector3.Distance( car.transform.position, carWaitPos.position ) / car.speed
+                     ).onComplete += CheckPile;
+    }
+
     private void OnCarRepairHandler ( CarEntity obj ) {
         if ( obj.team == this ) {
-            if ( obj == repairSpotCar ) {
-                GoAway( obj );
-                if ( carPile.Count != 0 )
-                    GoToRepair( carPile.Dequeue() );
-                else
-                    instaGoToRepair = true;
+            if ( obj == car2 ) {
+                OnCar2Repair?.Invoke();
             }
-        }
-    }
-
-    private void Update () {
-        if ( started ) {
-            interval -= Time.deltaTime;
-            interval = Mathf.Clamp( interval, endInterval, startInterval );
+            else if ( obj == car1 ) {
+                OnCar1Repair?.Invoke();
+            }
         }
     }
 
@@ -137,6 +176,38 @@ public class Team : MonoBehaviour {
         if ( carPile.Count >= pileLimit )
             OnLose.Invoke();
     }
+
+    private void UpdatePilePositions () {
+        carPileArray = carPile.ToArray();
+        int count = carPileArray.Length;
+        for ( int i = 0; i < count; i++ ) {
+            CarEntity car = carPileArray[i];
+            car.transform.DOMove(
+                carWaitPos.position + direction * i * pileDistance,
+                Vector3.Distance( car.transform.position, carWaitPos.position ) / car.speed
+             ).onComplete += CheckPile;
+        }
+    }
+    #endregion
+
+    #region Monos
+    private void Update () {
+        if ( started ) {
+            interval -= Time.deltaTime;
+            interval = Mathf.Clamp( interval, endInterval, startInterval );
+        }
+    }
+
+    private void OnDisable () {
+        OnCar1Repair -= Car1RepairHandler;
+        OnCar2Repair -= Car2RepairHanlder;
+    }
+
+    private void OnEnable () {
+        OnCar1Repair += Car1RepairHandler;
+        OnCar2Repair += Car2RepairHanlder;
+    }
+    #endregion
 }
 
 [System.Serializable]

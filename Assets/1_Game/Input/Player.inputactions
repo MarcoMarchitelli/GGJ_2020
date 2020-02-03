@@ -290,6 +290,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "b729ac8c-b3c8-44d3-99ca-e5adc128bc0f",
+            "actions": [
+                {
+                    "name": "DPad",
+                    "type": "Value",
+                    "id": "868b2f4f-e70b-4250-a29e-6c4e65ccbcbc",
+                    "expectedControlType": "Dpad",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1e0e6a93-03fc-4578-8c77-ae97e511ef5a",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "DPad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

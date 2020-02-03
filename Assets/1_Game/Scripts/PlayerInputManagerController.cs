@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputManagerController : MonoBehaviour {
     public static PlayerInputManagerController Instance;
-    
+
     public class Player {
         public string name;
         public Animator animator;
@@ -15,8 +15,8 @@ public class PlayerInputManagerController : MonoBehaviour {
     public PlayerInputManager playerInputManager;
 
     [Header( "Events" )]
-    public UnityPlayerInputEvent OnPlayerJoined;
-    public UnityPlayerInputEvent OnPlayerLeft;
+    public UnityPlayerInputEvent onPlayerJoined;
+    public UnityPlayerInputEvent onPlayerLeft;
 
     public void Setup () {
         if ( Instance == null )
@@ -24,13 +24,15 @@ public class PlayerInputManagerController : MonoBehaviour {
         playerInputManager.EnableJoining();
     }
 
-    public void LeftHandler ( PlayerInput obj ) {
-        OnPlayerLeft.Invoke( obj );
+    #region Player Input Manager Messages
+    private void OnPlayerJoined ( PlayerInput player ) {
+        onPlayerJoined.Invoke( player );
     }
 
-    public void JoinHandler ( PlayerInput obj ) {
-        OnPlayerJoined.Invoke( obj );
+    private void OnPlayerLeft ( PlayerInput player ) {
+        onPlayerLeft.Invoke( player );
     }
+    #endregion
 }
 
 [System.Serializable]

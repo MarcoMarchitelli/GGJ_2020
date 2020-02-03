@@ -50,7 +50,9 @@ public class TeamManager : MonoBehaviour {
     private void CheckGameStartConditions () {
         int teamAPlayers = teamA.playerEntities.Count;
         int teambPlayers = teamB.playerEntities.Count;
-        if ( teamAPlayers != 0 && teambPlayers != 0 && teamAPlayers == teambPlayers ) {
+
+        //_________________________________________________________TESTING
+        if ( teamAPlayers != 0 || teambPlayers != 0 ) {
             //can play
             canPlay = true;
             OnCanPlay.Invoke();
@@ -60,6 +62,18 @@ public class TeamManager : MonoBehaviour {
             canPlay = false;
             OnCannotPlay.Invoke();
         }
+        //_________________________________________________________TESTING
+
+        //if ( teamAPlayers != 0 && teambPlayers != 0 && teamAPlayers == teambPlayers ) {
+        //    //can play
+        //    canPlay = true;
+        //    OnCanPlay.Invoke();
+        //}
+        //else {
+        //    //cannot play
+        //    canPlay = false;
+        //    OnCannotPlay.Invoke();
+        //}
     }
 
     private void StartGame () {

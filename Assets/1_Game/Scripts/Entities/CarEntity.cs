@@ -27,6 +27,7 @@ public class CarEntity : MonoBehaviour {
     public UnityTeamEvent OnRepair;
 
     [HideInInspector] public float speed;
+    [HideInInspector] public bool repaired;
     private List<Repairable> minigames;
 
     public System.Action<CarEntity> OnCarRepair;
@@ -34,6 +35,7 @@ public class CarEntity : MonoBehaviour {
     private List<Transform> minigameSpawns;
 
     public void Repair () {
+        repaired = true;
         OnRepair.Invoke( team );
         OnCarRepair?.Invoke( this );
     }
