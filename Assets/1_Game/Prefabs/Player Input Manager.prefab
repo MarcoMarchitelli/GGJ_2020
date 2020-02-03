@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_MaxPlayerCount: 4
   m_AllowJoining: 0
   m_JoinBehavior: 0
@@ -123,9 +123,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputManager: {fileID: 8069622318460104079}
-  OnPlayerJoined:
+  onPlayerJoined:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 371128180}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 55ab217f2c166644a9f09777cfbd0fbd, type: 2}
         m_MethodName: Invoke
         m_Mode: 0
@@ -137,7 +148,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnPlayerLeft:
+  onPlayerLeft:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 847beacc75057cd43832a907970c5771, type: 2}
