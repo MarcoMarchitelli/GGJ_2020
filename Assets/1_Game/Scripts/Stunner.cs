@@ -7,13 +7,18 @@ public class Stunner : MonoBehaviour {
     public Collider hitCollider;
 
     public Team team;
+    bool active;
 
     public void Activate () {
+        hitCollider.enabled = true;
         counting = true;
         timer = 0;
+        active = true;
     }
 
     private void OnTriggerEnter ( Collider other ) {
+        if ( !active )
+            return;
         PlayerEntity p = other.GetComponent<PlayerEntity>();
         if ( p && p.data.team != team ) {
             p.Stun();
@@ -28,6 +33,8 @@ public class Stunner : MonoBehaviour {
             if ( timer >= time ) {
                 counting = false;
                 timer = 0;
+                active = false;
+                hitCollider.enabled = false;
             }
         }
     }

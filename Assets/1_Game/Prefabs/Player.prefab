@@ -55,7 +55,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8321684558524684576}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -63,7 +63,7 @@ Transform:
   - {fileID: 5324613754032074644}
   m_Father: {fileID: 8321684560292489502}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &8321684559750604086
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   playerInput: {fileID: 1276597754}
   playerInputHandler: {fileID: 1276597757}
   playerRigidBody: {fileID: 8321684560292489500}
+  itemHolder: {fileID: 0}
   OnStartGameButtonClick:
     m_PersistentCalls:
       m_Calls:
@@ -301,7 +302,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  canRepair: 0
+  hasItem: 0
 --- !u!114 &1276597757
 MonoBehaviour:
   m_ObjectHideFlags: 0

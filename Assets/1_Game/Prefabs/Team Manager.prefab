@@ -194,6 +194,7 @@ MonoBehaviour:
   endInterval: 10
   pileLimit: 7
   pileDistance: 5
+  count: {fileID: 0}
   OnLose:
     m_PersistentCalls:
       m_Calls:
@@ -494,6 +495,7 @@ MonoBehaviour:
   endInterval: 10
   pileLimit: 7
   pileDistance: 5
+  count: {fileID: 0}
   OnLose:
     m_PersistentCalls:
       m_Calls:
