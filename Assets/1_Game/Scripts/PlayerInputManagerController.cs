@@ -3,6 +3,14 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerInputManagerController : MonoBehaviour {
+    public static PlayerInputManagerController Instance;
+    
+    public class Player {
+        public string name;
+        public Animator animator;
+        public Team team;
+    }
+
     [Header("References")]
     public PlayerInputManager playerInputManager;
 
@@ -11,6 +19,8 @@ public class PlayerInputManagerController : MonoBehaviour {
     public UnityPlayerInputEvent OnPlayerLeft;
 
     public void Setup () {
+        if ( Instance == null )
+            Instance = this;
         playerInputManager.EnableJoining();
     }
 

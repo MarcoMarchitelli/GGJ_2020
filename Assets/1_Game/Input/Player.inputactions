@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Start Minigame",
+                    "name": "StartMinigame",
                     "type": "Button",
                     "id": "f59dc341-10d1-4e43-b269-0e34818dd76e",
                     "expectedControlType": "",
@@ -26,6 +26,22 @@
                     "type": "Button",
                     "id": "223ed594-36ea-44c2-a92f-bbc75ac7383f",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Repair",
+                    "type": "Value",
+                    "id": "1c503f1c-cc65-4a29-8f15-a6b415c3ed0f",
+                    "expectedControlType": "Double",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Item",
+                    "type": "Button",
+                    "id": "9159e773-3644-4046-b5fc-c348652ad6ee",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -49,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Start Minigame",
+                    "action": "StartMinigame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -59,8 +75,30 @@
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ba000dd-f252-4954-addf-ac00292c77d8",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Repair",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ef02f80-5e57-4a43-b653-9596a5563693",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -71,7 +109,7 @@
             "id": "cd8744d8-2860-4690-a448-16b0dd4ea332",
             "actions": [
                 {
-                    "name": "Button South",
+                    "name": "ButtonSouth",
                     "type": "Button",
                     "id": "5fff2e89-9d21-4bc7-b56c-7884d7ddb991",
                     "expectedControlType": "",
@@ -79,7 +117,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Button East",
+                    "name": "ButtonEast",
                     "type": "Button",
                     "id": "f0e93ee2-c9f5-4786-a1c7-1800a812fcb5",
                     "expectedControlType": "",
@@ -87,7 +125,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Button West",
+                    "name": "ButtonWest",
                     "type": "Button",
                     "id": "9e81ba38-98aa-47d6-ba5b-87a8af321f0a",
                     "expectedControlType": "",
@@ -95,7 +133,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Button North",
+                    "name": "ButtonNorth",
                     "type": "Button",
                     "id": "62026bf9-ba78-4822-b39b-6510b0cb4ff1",
                     "expectedControlType": "",
@@ -103,7 +141,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Left Shoulder",
+                    "name": "LeftShoulder",
                     "type": "Button",
                     "id": "545978bc-ec82-4a01-8729-c2a45fe67c22",
                     "expectedControlType": "",
@@ -111,7 +149,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Right Shoulder",
+                    "name": "RightShoulder",
                     "type": "Button",
                     "id": "766a68cf-df6d-4c66-bf51-0e0fc8b33d79",
                     "expectedControlType": "",
@@ -119,7 +157,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Left Trigger",
+                    "name": "LeftTrigger",
                     "type": "Button",
                     "id": "0d6b8dd9-8986-45cf-838b-d008f04f5369",
                     "expectedControlType": "",
@@ -127,7 +165,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Right Trigger",
+                    "name": "RightTrigger",
                     "type": "Button",
                     "id": "8bd864ed-97ce-4b8c-b203-1b9576cdb79f",
                     "expectedControlType": "",
@@ -142,8 +180,8 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Button South",
+                    "groups": "Gamepad",
+                    "action": "ButtonSouth",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -153,8 +191,8 @@
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Button East",
+                    "groups": "Gamepad",
+                    "action": "ButtonEast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -164,8 +202,8 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Button West",
+                    "groups": "Gamepad",
+                    "action": "ButtonWest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -175,8 +213,8 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Button North",
+                    "groups": "Gamepad",
+                    "action": "ButtonNorth",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -186,8 +224,8 @@
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Left Shoulder",
+                    "groups": "Gamepad",
+                    "action": "LeftShoulder",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -197,8 +235,8 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Right Shoulder",
+                    "groups": "Gamepad",
+                    "action": "RightShoulder",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -208,8 +246,8 @@
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Left Trigger",
+                    "groups": "Gamepad",
+                    "action": "LeftTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -219,8 +257,35 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Right Trigger",
+                    "groups": "Gamepad",
+                    "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Ready",
+            "id": "654013f6-661e-4f62-9019-b5f6945a7696",
+            "actions": [
+                {
+                    "name": "StartGame",
+                    "type": "Button",
+                    "id": "5fbd59b7-c053-443d-bed0-7c8ed4ead035",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f557c170-e937-4221-9982-901598c48a76",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "StartGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Deirin.EB;
 
-public class PlayerInputHandlerBehaviour : BaseBehaviour {
+public class PlayerInputHandlerBehaviour : MonoBehaviour {
     [Header("References")]
     public Transform cameraTransform;
 
@@ -12,13 +12,12 @@ public class PlayerInputHandlerBehaviour : BaseBehaviour {
 
     private Vector3 inputVector;
 
-    protected override void CustomSetup () {
+    public void Awake () {
         if ( !cameraTransform )
             SetCamera();
     }
 
-    public void SetMoveInput ( InputAction.CallbackContext callbackContext ) {
-        Vector2 inputVector = callbackContext.ReadValue<Vector2>();
+    public void SetMoveInput ( Vector2 inputVector ) {
         this.inputVector = new Vector3( inputVector.x, 0, inputVector.y );
         if ( !cameraTransform )
             SetCamera();
@@ -34,3 +33,6 @@ public class PlayerInputHandlerBehaviour : BaseBehaviour {
 
 [System.Serializable]
 public class UnityVector3Event : UnityEvent<Vector3> { }
+
+[System.Serializable]
+public class UnityVector2Event : UnityEvent<Vector2> { }
